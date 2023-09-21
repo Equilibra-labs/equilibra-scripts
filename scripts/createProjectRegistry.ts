@@ -1,0 +1,38 @@
+import { ethers } from "hardhat";
+import ProjectRegistryABI from "../abis/ProjectRegistry.json";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+const PROJECT_REGISTRY_ADDRESS = "0xFb5Ff528E295a39b1ba0b053FF7cA410396932c0"; //proxy
+const BENEFICIARY = "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199";
+const IPFS_HASH = "QmXj9NW3pA1NqAKFczKQia2QrM5rp3GE9fxzggdZbqC5";
+
+async function main() {
+  const [signer] = await ethers.getSigners();
+
+  //create ProjectRegistry
+
+  const projectRegistry = await ethers.getContractAt(
+    ProjectRegistryABI,
+    PROJECT_REGISTRY_ADDRESS,
+    signer
+  );
+
+  const contentHash = "0x1234567890"; // Replace with your content hash
+
+  const encodeData = ethers.utils.defaultAbiCoder.encode(
+    ["string", "string"],
+    ["RANDOM", "random"]
+  );
+
+  const tx = await projectRegistry.registerProject(BENEFICIARY, encodeData);
+  await tx.wait();
+  console.log("Transaction hash:", tx.hash);
+}
+
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
