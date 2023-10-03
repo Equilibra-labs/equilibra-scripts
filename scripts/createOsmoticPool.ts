@@ -39,10 +39,10 @@ async function main() {
 
   const tx = await controller.createOsmoticPool(poolInitCode);
 
-  // const { events: createOsmoticPoolEvents } = await tx.wait();
-  // const { pool } = createOsmoticPoolEvents.find(
-  //   ({ event }: { event: string }) => event === "OsmoticPoolCreated"
-  // ).args;
+  const { events: createOsmoticPoolEvents } = await tx.wait();
+  const { pool } = createOsmoticPoolEvents.find(
+    ({ event }: { event: string }) => event === "OsmoticPoolCreated"
+  ).args;
 
   console.log("OsmoticPool", tx);
 }

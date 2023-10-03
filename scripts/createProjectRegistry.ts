@@ -3,14 +3,13 @@ import ProjectRegistryABI from "../abis/ProjectRegistry.json";
 import * as dotenv from "dotenv";
 dotenv.config();
 
-const PROJECT_REGISTRY_ADDRESS = "0xFb5Ff528E295a39b1ba0b053FF7cA410396932c0"; //proxy contract
+const PROJECT_REGISTRY_ADDRESS = "0xFb5Ff528E295a39b1ba0b053FF7cA410396932c0"; //proxy
 const BENEFICIARY = "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199";
 
 async function main() {
   const [signer] = await ethers.getSigners();
 
   //create ProjectRegistry
-
   const projectRegistry = await ethers.getContractAt(
     ProjectRegistryABI,
     PROJECT_REGISTRY_ADDRESS,
@@ -22,12 +21,11 @@ async function main() {
     ["Description", "Link to github"]
   );
   //playground for encode and decode
-
-  // const decode = ethers.utils.defaultAbiCoder.decode(
-  //   ["string", "string"],
-  //   encodeData
-  // );
-  //console.log(decode);
+  const decode = ethers.utils.defaultAbiCoder.decode(
+    ["string", "string"],
+    encodeData
+  );
+  //console.log(encodeData, decode);
 
   const tx = await projectRegistry.registerProject(BENEFICIARY, encodeData);
   await tx.wait();

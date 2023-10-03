@@ -13,9 +13,7 @@ const config: HardhatUserConfig = {
     },
     goerli: {
       url: process.env.GOERLI_RPC_URL,
-      // accounts: {
-      //   mnemonic: process.env.PRIVATE_KEY,
-      // },
+      accounts: [process.env.PRIVATE_KEY || ""],
     },
   },
 };
