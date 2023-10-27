@@ -1,0 +1,37 @@
+{
+ "format": "standard-v1",
+ "tree": [
+  "0xe63800e85d043d6990a0ac654ca3892ea3f894e71564e6a55f7c849640d5f3db",
+  "0xa935d719037adee2dd2b8f2a342a5d66d39dbea7fd6b6e5b084955949bc9b521",
+  "0xac3d11b1620cb7b4b45a86cba191570464302e6c71a67db93592018594d8ea7d",
+  "0x30994439fdf2ea55f56b1f49e87997b5e855c63bb0955ee328cfe940f6bb9536",
+  "0x2a7fcd4c00c80147a68169610384c4e945fc3f376c8370700178f5b7984c141a"
+ ],
+ "values": [
+  {
+   "value": [
+    "0x5BE8Bb8d7923879c3DDc9c551C5Aa85Ad0Fa4dE3",
+    "255"
+   ],
+   "treeIndex": 4
+  },
+  {
+   "value": [
+    "0x2cc10a00c6906910601680B9186751f2aFBB4B49",
+    "600"
+   ],
+   "treeIndex": 2
+  },
+  {
+   "value": [
+    "0xa25211B64D041F690C0c818183E32f28ba9647Dd",
+    "400"
+   ],
+   "treeIndex": 3
+  }
+ ],
+ "leafEncoding": [
+  "address",
+  "uint"
+ ]
+}

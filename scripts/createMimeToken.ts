@@ -26,8 +26,8 @@ async function main() {
   const mimeInitCode = new ethers.utils.Interface(
     MIME_TOKEN_ABI
   ).encodeFunctionData("initialize", [
-    "Osmotic Fund",
-    "OF",
+    "Test one",
+    "T1",
     MERKLE_ROOT,
     timestamp,
     duration,

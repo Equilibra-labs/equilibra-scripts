@@ -20,7 +20,7 @@ async function main() {
     signer
   );
 
-  //create osmotic pool
+  //create osmotic pool => POOL ALREADY CREATED ON GOERLI - pool 1
   const openList = PROJECT_REGISTRY_ADDRESS;
 
   const poolInitCode = new ethers.utils.Interface(
