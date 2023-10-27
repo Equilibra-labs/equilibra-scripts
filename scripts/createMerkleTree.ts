@@ -4,8 +4,9 @@ import fs from "fs";
 //Building a Tree
 // (1)
 const values = [
-  ["0x1111111111111111111111111111111111111111", "5000000000000000000"],
-  ["0x2222222222222222222222222222222222222222", "2500000000000000000"],
+  ["0x5BE8Bb8d7923879c3DDc9c551C5Aa85Ad0Fa4dE3", "5000000000000000000"],
+  ["0x2cc10a00c6906910601680B9186751f2aFBB4B49", "2500000000000000000"],
+  ["0xa25211B64D041F690C0c818183E32f28ba9647Dd", "3500000000000000000"],
 ];
 // (2)
 const tree = StandardMerkleTree.of(values, ["address", "uint256"]);
@@ -33,7 +34,7 @@ console.log("verify ?", tree.verify(values[index], proof));
 //console.log(tree.render());
 
 //Returns the leaf hash of the value
-for (const [i, v] of tree.entries()) {
+for (const [, v] of tree.entries()) {
   console.log("value:", v);
   console.log("proof:", tree.leafHash(v));
 }

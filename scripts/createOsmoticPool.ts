@@ -9,7 +9,8 @@ const OSMOTIC_POOL_ABI = [
   "function initialize(address,address,address,tuple(uint256,uint256,uint256,uint256))",
 ];
 const FUNDING_TOKEN = "0x5CfAdf589a694723F9Ed167D647582B3Db3b33b3";
-const MIME_TOKEN_ADDRESS = "0xE1FcAD927C596141EaB648CFF3B73140F42442C1";
+const MIME_TOKEN_ADDRESS = "0x08D6b1260EaCBB8dde0363a379f145D9f8a26Ea9";
+// 0xacAA5Dd007570B8ACC6e4898e7457aD11Cbe2373 pool address 10k fakeDai
 
 async function main() {
   const [signer] = await ethers.getSigners();
@@ -19,6 +20,8 @@ async function main() {
     OSMOTIC_CONTROLLER_ADDRESS,
     signer
   );
+
+  const block = await ethers.provider.getBlockNumber();
 
   //create osmotic pool => POOL ALREADY CREATED ON GOERLI - pool 1
   const openList = PROJECT_REGISTRY_ADDRESS;
@@ -44,7 +47,7 @@ async function main() {
     ({ event }: { event: string }) => event === "OsmoticPoolCreated"
   ).args;
 
-  console.log("OsmoticPool", tx);
+  console.log("OsmoticPool", pool);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

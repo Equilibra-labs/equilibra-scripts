@@ -11,15 +11,32 @@ const tree = StandardMerkleTree.of(
   leafs.map((leaf) => leaf.split(",")),
   encoding.split(",")
 );
-console.log("Merkle Root Done:", tree.root);
+console.log("Merkle Root:", tree.root);
 
 fs.writeFileSync("tree.json", JSON.stringify(tree.dump(), null, 2));
 
 //Obtaining the Proof
-// (1) Get the index of the value you want to obtain the proof for
-const index = 1;
+for (const [_, v] of tree.entries()) {
+  console.log("proof:", tree.leafHash(v));
+  console.log("value:", v);
+}
 
-// (2) Get the proof for the given index
-const proof = tree.getProof(index);
+// const verify = leafs.map((leaf, i) => {
+//   console.log(tree.verify(leaf.split(","), tree.getProof(i)));
+// });
+// console.log(verify);
 
-console.log("Proof for index", index, ":", proof);
+//multiproof for the values at indices i0, i1, .... Indices refer to the position of the values in the array from which the tree was constructed.
+// const {
+//   proof: proofMultiProof,
+//   proofFlags,
+//   leaves,
+// } = tree.getMultiProof([0, 1, 2]);
+// console.log(
+//   "proof:",
+//   proofMultiProof,
+//   "proofFlags:",
+//   proofFlags,
+//   "leaves:",
+//   leaves
+// );
