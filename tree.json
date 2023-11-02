@@ -1,63 +1,50 @@
 {
   "format": "standard-v1",
   "tree": [
-    "0xfec4d831916cb79d198988bfb2a6fd4be49c469e593a2e4a91cc3bcb5697fb46",
-    "0x0eecce6943d4782f661de2f22a9ad6fafc987a688784f9a62d795f9aebf80d3f",
-    "0x03a4b64ff6962c0b81ef74505b4f6b011e99f4a85127d5823be3f559cac754a9",
-    "0x21660ed2b888003ffd67176f8b7060d5135ec4c8d6c3cf20c5e048fcf61e8afb",
-    "0x44a21a40309d65d599a0e73d46e7f0d7f2c6bf138d1f4401a3a98545689573ed",
-    "0xd839945b1b31d616bbd61624ac86f7cc51ddd702b6102f4283c5de11ed53c969",
-    "0xb1cbf82b18b475541cc753c7560edbc1ba4750811025dfaf2a761a6828f7fe99",
-    "0x8c070005807e2a3239a3984f83a00f2064952f8b2b5646743432c4aa7a330186",
-    "0x8408a15065a5edae757df09e18734ae94495dbcee94540e00ed583cc8ceade37",
-    "0x7375e3c7e8be1e30210a0d785323f3dbe763a86113e09f5aaab659d96cea2721",
-    "0x271daff0fb8d25098724b971f6fc192453d377a34f664149ec747fc8c6048ab6"
+    "0x9db36a0d2793f592c2c04f027d22ab781cf3378e674ccfa6bd0d14154d7fb9aa",
+    "0xd751167d2fc81abefd8a715a2e78ac4f3a2e6948fe2de1f3d68987007bafc03b",
+    "0xe3db4f126c0e39c46ae5c250778960b7e453b30c6d5c45b20a6591ae546a1e47",
+    "0xd4998a76813b9f035925d1100022459aeb310cd53eda06eb9221c1095204755b",
+    "0x8868ad97dd405b7ed02afce072617bc6836e2bdef2416679ec63b6a6e9ed033f",
+    "0x1b2c1420a9ad91a87ba2df7f257eed1b0d6a1b76468d498a007a634a02fb58d2",
+    "0x015fc53738e94353a7a265dbc09e169ddff0802998dc504dde2c20de4695064d"
   ],
   "values": [
     {
       "value": [
+        "0",
         "0x5BE8Bb8d7923879c3DDc9c551C5Aa85Ad0Fa4dE3",
         "350"
       ],
-      "treeIndex": 8
+      "treeIndex": 6
     },
     {
       "value": [
+        "1",
         "0x2cc10a00c6906910601680B9186751f2aFBB4B49",
-        "200"
+        "350"
       ],
-      "treeIndex": 7
+      "treeIndex": 4
     },
     {
       "value": [
+        "2",
         "0xa25211B64D041F690C0c818183E32f28ba9647Dd",
-        "200"
+        "450"
       ],
-      "treeIndex": 9
+      "treeIndex": 3
     },
     {
       "value": [
+        "3",
         "0xf46c2a3c093Ecf5c8F9b0B76e0A449f42739A25b",
-        "150"
-      ],
-      "treeIndex": 10
-    },
-    {
-      "value": [
-        "0xafa295571dEB2b5A5E5038ea826C9FD18deAc9D5",
-        "250"
+        "450"
       ],
       "treeIndex": 5
-    },
-    {
-      "value": [
-        "0xA82e58192E7861526AF80DB6252B247c058D00cD",
-        "200"
-      ],
-      "treeIndex": 6
     }
   ],
   "leafEncoding": [
+    "uint",
     "address",
     "uint"
   ]

@@ -33,6 +33,18 @@ const MIME_TOKENS_DATA = [
     //hash: 0xe813871f850da49cf52548318cdda11cb696d6cf9cd3c69d15beae47673dc3e7
     //address-goerli:0xc367cC2921a72fABa795B90ebbAf589aeF7483dA
   },
+  {
+    name: "RealMimeToken",
+    symbol: "RMT",
+    merkleRoot:
+      "0x287068535fe2318d835bb7b1afd484f817e5b03247f67285ee7f0880d5cc4c81",
+  },
+  {
+    name: "FedeToken",
+    symbol: "FTK",
+    merkleRoot:
+      "0x11ba5fd37268c59f5dca99ea1425cbb8ce2fa50ec13e4ebe58281348f44ed5d9",
+  },
 ];
 
 async function main() {
@@ -48,7 +60,7 @@ async function main() {
   const duration = await controller.claimDuration();
 
   // create mime token
-  const index = 2;
+  const index = 4;
   const mimeInitCode = new ethers.utils.Interface(
     MIME_TOKEN_ABI
   ).encodeFunctionData("initialize", [

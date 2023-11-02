@@ -4,13 +4,31 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 const OSMOTIC_CONTROLLER_ADDRESS = "0x0b9f52138050881C4d061e6A92f72d8851B59F8e"; //proxy
-const PROJECT_REGISTRY_ADDRESS = "0xFb5Ff528E295a39b1ba0b053FF7cA410396932c0"; //proxy
 const OSMOTIC_POOL_ABI = [
   "function initialize(address,address,address,tuple(uint256,uint256,uint256,uint256))",
 ];
-const FUNDING_TOKEN = "0x5CfAdf589a694723F9Ed167D647582B3Db3b33b3";
-const MIME_TOKEN_ADDRESS = "0x08D6b1260EaCBB8dde0363a379f145D9f8a26Ea9";
-// 0xacAA5Dd007570B8ACC6e4898e7457aD11Cbe2373 pool address 10k fakeDai
+const FUNDING_TOKEN = "0x5943F705aBb6834Cad767e6E4bB258Bc48D9C947"; //ETHx goerli
+
+// 0x44877391133ED75906264dD352149a3aB2ee43F2 mimetoken address which could claim token!!!
+
+const POOLS_DATA = [
+  {
+    mimeTokenAddress: "0x44877391133ED75906264dD352149a3aB2ee43F2",
+    //mimeToken => FedeToken
+    listAddress: "0xd486d0a08ec6f86eb71579277ab1a7ae34b1fff1",
+    //liste name: ListOne
+  },
+  {
+    mimeTokenAddress: "",
+    listAddress: "",
+  },
+  {
+    mimeTokenAddress: "0xdE2e52198E7946d823688FeA69819761e9cB38eD",
+    listAddress: "0xc2d3e42f46de27245f5f9298cf5211f487599f48",
+    //ListTwo
+    //hash mime token 2: 0x5226727ab56180b0cd31e2dd724584482c57f14de68cdb140cdfd5595f4f049e
+  },
+];
 
 async function main() {
   const [signer] = await ethers.getSigners();
@@ -20,23 +38,20 @@ async function main() {
     OSMOTIC_CONTROLLER_ADDRESS,
     signer
   );
-
-  const block = await ethers.provider.getBlockNumber();
-
   //create osmotic pool => POOL ALREADY CREATED ON GOERLI - pool 1
-  const openList = PROJECT_REGISTRY_ADDRESS;
 
+  const index = 0;
   const poolInitCode = new ethers.utils.Interface(
     OSMOTIC_POOL_ABI
   ).encodeFunctionData("initialize", [
     FUNDING_TOKEN,
-    MIME_TOKEN_ADDRESS,
-    openList,
+    POOLS_DATA[index].mimeTokenAddress,
+    POOLS_DATA[index].listAddress,
     [
-      "999999197747000000", // 10 days (864000 seconds) to reach 50% of targetRate
+      "999999197747000000", // 10 days (864000 seconds) to reach 50% of targetRate // cuanto tiempo tiene que pasar para que el flujio pool project se acumeule hasta la mitad del valor
       1,
       19290123456, // 5% of Common Pool per month = Math.floor(0.05e18 / (30 * 24 * 60 * 60))
-      "28000000000000000", // 2.5% of Total Support = the minimum stake to start receiving funds
+      "28000000000000000", // 2.5% of Total Support = the minimum stake to start receiving funds,  lo minimo que un project tiene que ser soportardo para que empieze a recibir fondos, es decir, active el flujo. Del total de token u votos disponibles
     ],
   ]);
 
